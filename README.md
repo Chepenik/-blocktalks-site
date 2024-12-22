@@ -1,8 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Block Talks: Bitcoin & Health
+
+Block Talks is a micro-podcast web application built with [Next.js](https://nextjs.org). This app provides users with quick, 10-minute episodes that explain key Bitcoin concepts in an easy-to-digest format. Each episode is presented as a "block," visually inspired by the mempool.space interface, with additional styling for a clean and engaging user experience.
+
+---
+
+## Features
+
+- **Block-Themed Episodes**: Episodes are presented in a grid of blocks, each featuring an episode number, block number, title, metrics, and sponsor.
+- **Dynamic Episode Pages**: Clicking a block redirects users to a dedicated page for the episode, where more details or audio content can be hosted.
+- **Nostr Integration**: Includes a link to connect with the project via Nostr for further engagement with the Bitcoin community.
+- **Responsive Design**: Optimized for desktop and mobile devices.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to get the project running on your local environment:
+
+### Run the Development Server
 
 ```bash
 npm run dev
@@ -12,26 +27,9 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+About Block Talks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# -blocktalks-site
+Block Talks is a platform for Bitcoin education, offering micro-podcasts designed to empower listeners with quick and insightful explanations of Bitcoin-related topics. It aims to make Bitcoin education accessible, engaging, and interactive.
