@@ -79,7 +79,7 @@ export default function Home() {
               <div
                 className="aspect-square rounded-lg transform-gpu transition-transform
                            group-hover:-translate-y-1 group-hover:shadow-lg
-                           bg-gradient-to-b from-purple-600 to-blue-600
+                           bg-gradient-to-b from-orange-600 to-purple-700
                            p-2 border border-gray-700 flex flex-col justify-between"
               >
                 {/* Block Number and Episode Number */}

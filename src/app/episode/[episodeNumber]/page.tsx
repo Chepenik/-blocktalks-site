@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 interface Episode {
   episodeNumber: number;
@@ -34,19 +35,20 @@ const episodesData: Episode[] = [
   },
 ];
 
-interface EpisodePageProps {
-  params: { episodeNumber: string };
-}
+export default async function EpisodePage({
+  params,
+}: {
+  // `params` must be typed as a Promise in Next.js 15 for dynamic routes
+  params: Promise<{ episodeNumber: string }>;
+}) {
+  // Await the async `params`
+  const { episodeNumber } = await params;
 
-export default async function EpisodePage({ params }: EpisodePageProps) {
-  // Await params to avoid sync error
-  const resolvedParams = await params;
-  const epNum = parseInt(resolvedParams.episodeNumber, 10);
-
+  // Convert to integer
+  const epNum = parseInt(episodeNumber, 10);
   // Find the episode data
   const episode = episodesData.find((ep) => ep.episodeNumber === epNum);
 
-  // If the episode does not exist, show a 404 page
   if (!episode || isNaN(epNum)) {
     notFound();
   }
@@ -75,6 +77,15 @@ export default async function EpisodePage({ params }: EpisodePageProps) {
           <p className="text-sm text-gray-300 p-4">Video coming soon!</p>
         )}
       </div>
+
+      {/* "Back to Home" Button */}
+      <Link
+        href="/"
+        className="inline-block mt-6 bg-purple-500 hover:bg-purple-600 px-6 py-2 
+                   rounded-md text-white font-semibold transition-colors"
+      >
+        Back to Home
+      </Link>
     </div>
   );
 }
