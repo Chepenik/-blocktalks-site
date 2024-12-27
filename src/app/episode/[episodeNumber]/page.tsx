@@ -6,21 +6,22 @@ interface Episode {
   episodeNumber: number;
   title: string;
   sponsor: string;
-  embedCode: string; 
+  embedCode: string; // Embed code for the audio player
 }
 
+// Updated episode data with embed codes for Episodes 1 and 2
 const episodesData: Episode[] = [
   {
     episodeNumber: 1,
     title: "Bitcoin Basics",
     sponsor: "Finney21",
-    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1815407" title="Block Talk_001_Bitcoin" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no"><a href="https://rss.com/podcasts/bitcoinstoa/1815407">Block Talk_001_Bitcoin</a></iframe>`,
+    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1815407" title="Block Talk_001_Bitcoin" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
   },
   {
     episodeNumber: 2,
     title: "Health and Bitcoin",
     sponsor: "TBD",
-    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1816968" title="Block Talk_002_Health" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no"><a href="https://rss.com/podcasts/bitcoinstoa/1816968">Block Talk_002_Health</a></iframe>`,
+    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1816968" title="Block Talk_002_Health" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
   },
   {
     episodeNumber: 3,
