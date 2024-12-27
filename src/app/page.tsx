@@ -51,25 +51,25 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white font-mono flex flex-col">
+    <div className="min-h-screen bg-gray-900 text-white font-pressStart flex flex-col">
       {/* HEADER */}
       <header className="border-b border-gray-800 p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-[#4DFFF3]/20 rounded flex items-center justify-center">
-            <span className="text-[#4DFFF3] font-bold text-xl">₿</span>
+            <span className="text-[#4DFFF3] font-bold text-lg">₿</span>
           </div>
-          <h1 className="text-2xl tracking-tight font-bold">
+          <h1 className="text-xl tracking-tight font-bold">
             Block Talks: Bitcoin &amp; Health
           </h1>
         </div>
-        <p className="text-sm text-gray-400">
+        <p className="text-xs text-gray-400">
           Weekly 10-min microdose of Bitcoin knowledge
         </p>
       </header>
 
       {/* MAIN CONTENT */}
-      <main className="p-6 flex-1">
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+      <main className="p-4 flex-1">
+        <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {episodes.map((episode) => (
             <Link
               key={episode.episodeNumber}
@@ -83,22 +83,20 @@ export default function Home() {
                            p-2 border border-gray-700 flex flex-col justify-between"
               >
                 {/* Block Number and Episode Number */}
-                <div className="flex justify-between items-center">
-                  <span className="text-xs text-cyan-300">
-                    Block #{episode.blockNumber}
-                  </span>
-                  <span className="bg-[#4DFFF3]/20 text-[#4DFFF3] text-xs font-bold px-2 py-1 rounded">
+                <div className="flex justify-between items-center text-[10px]">
+                  <span className="text-cyan-300">Block #{episode.blockNumber}</span>
+                  <span className="bg-[#4DFFF3]/20 text-[#4DFFF3] text-[10px] font-bold px-2 py-1 rounded">
                     {episode.episodeNumber.toString().padStart(3, "0")}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h2 className="text-sm font-bold text-white text-center mt-2">
+                <h2 className="text-xs font-bold text-white text-center mt-2">
                   {episode.title}
                 </h2>
 
                 {/* Data Section */}
-                <div className="text-xs text-gray-300 space-y-1">
+                <div className="text-[10px] text-gray-300 space-y-1">
                   <p>
                     <span className="font-semibold text-gray-400">Hash Rate:</span>{" "}
                     {episode.hashRate}
@@ -130,7 +128,7 @@ export default function Home() {
           href="https://primal.net/p/npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-cyan-400 hover:underline"
+          className="text-cyan-400 hover:underline text-xs"
         >
           Connect with us on Nostr
         </a>

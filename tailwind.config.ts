@@ -1,5 +1,4 @@
-// tailwind.config.ts
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -8,9 +7,13 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        pressStart: ["'Press Start 2P'", "sans-serif"],
+      },
+    },
   },
   plugins: [],
-}
+};
 
-export default config
+export default config;
