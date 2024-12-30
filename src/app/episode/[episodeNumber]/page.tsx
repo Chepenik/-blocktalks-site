@@ -3,51 +3,56 @@ import Link from "next/link";
 
 // Define the structure of an episode
 interface Episode {
+  blockNumber: number;
   episodeNumber: number;
-  title: string;
+  topic: string;
+  hashrate: string;
   sponsor: string;
-  embedCode: string; // Embed code for the audio player
+  nostr?: string;
+  embedCode?: string; // Add embedCode to the interface
 }
 
 // Updated episode data with embed codes for Episodes 1 and 2
 const episodesData: Episode[] = [
   {
+    blockNumber: 876183,
     episodeNumber: 1,
-    title: "Bitcoin Basics",
-    sponsor: "Finney21",
+    topic: "Bitcoin",
+    hashrate: "723 Eh/s",
+    sponsor: "Zaps",
+    nostr: "npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec",
     embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1815407" title="Block Talk_001_Bitcoin" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
   },
   {
+    blockNumber: 876488,
     episodeNumber: 2,
-    title: "Health and Bitcoin",
-    sponsor: "TBD",
+    topic: "Health",
+    hashrate: "711 Eh/s",
+    sponsor: "Zaps",
+    nostr: "npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec",
     embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1816968" title="Block Talk_002_Health" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
   },
   {
+    blockNumber: 876629,
     episodeNumber: 3,
-    title: "Coming Soon",
-    sponsor: "TBD",
-    embedCode: "",
-  },
-  {
-    episodeNumber: 4,
-    title: "Coming Soon",
-    sponsor: "TBD",
-    embedCode: "",
+    topic: "NOSTR 101",
+    hashrate: "822 Eh/s",
+    sponsor: "Primal.net",
+    nostr: "npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec",
+    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1817878/" title="Block Talk_003_NOSTR 101" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
   },
 ];
 
-export default async function EpisodePage({
+export default function EpisodePage({
   params,
 }: {
-  params: Promise<{ episodeNumber: string }>;
+  params: { episodeNumber: string };
 }) {
-  const { episodeNumber } = await params;
-  const epNum = parseInt(episodeNumber, 10);
+  const episodeNumber = parseInt(params.episodeNumber, 10);
 
-  const episode = episodesData.find((ep) => ep.episodeNumber === epNum);
+  const episode = episodesData.find((ep) => ep.episodeNumber === episodeNumber);
 
-  if (!episode || isNaN(epNum)) {
+  if (!episode || isNaN(episodeNumber)) {
     notFound();
   }
 
@@ -56,7 +61,7 @@ export default async function EpisodePage({
       {/* Header */}
       <h1 className="text-xl mb-4 font-bold">Episode {episode.episodeNumber}</h1>
       <p className="text-gray-200 mb-6 text-center">
-        {episode.title}. Sponsored by <strong>{episode.sponsor}</strong>.
+        {episode.topic}. Sponsored by <strong>{episode.sponsor}</strong>.
       </p>
 
       {/* Embed Player or Placeholder */}

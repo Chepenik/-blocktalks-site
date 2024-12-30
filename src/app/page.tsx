@@ -1,13 +1,13 @@
 import Link from "next/link";
 
 interface Episode {
-  blockNumber: number | string;
+  blockNumber: number;
   episodeNumber: number;
-  title: string;
-  hashRate: string;
-  moscowTime?: number | string;
+  topic: string;
+  hashrate: string;
   sponsor: string;
-  largestZap?: string;
+  nostr?: string;
+  embedCode?: string; // Add embedCode to the interface
 }
 
 export default function Home() {
@@ -15,38 +15,29 @@ export default function Home() {
     {
       blockNumber: 876183,
       episodeNumber: 1,
-      title: "Bitcoin",
-      hashRate: "723 Eh/s",
-      moscowTime: 1015,
-      sponsor: "Finney21.com",
-      largestZap: "Conor Chepenik",
+      topic: "Bitcoin",
+      hashrate: "723 Eh/s",
+      sponsor: "Zaps",
+      nostr: "npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec",
+      embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1815407" title="Block Talk_001_Bitcoin" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
     },
     {
       blockNumber: 876488,
       episodeNumber: 2,
-      title: "Health",
-      hashRate: "711 Eh/s",
-      moscowTime: "1037",
-      sponsor: "Finney21.com",
-      largestZap: "TBD",
+      topic: "Health",
+      hashrate: "711 Eh/s",
+      sponsor: "Zaps",
+      nostr: "npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec",
+      embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1816968" title="Block Talk_002_Health" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
     },
     {
-      blockNumber: "TBD",
+      blockNumber: 876629,
       episodeNumber: 3,
-      title: "TBD",
-      hashRate: "TBD",
-      moscowTime: "TBD",
-      sponsor: "TBD",
-      largestZap: "TBD",
-    },
-    {
-      blockNumber: "TBD",
-      episodeNumber: 4,
-      title: "TBD",
-      hashRate: "TBD",
-      moscowTime: "TBD",
-      sponsor: "TBD",
-      largestZap: "TBD",
+      topic: "NOSTR 101",
+      hashrate: "822 Eh/s",
+      sponsor: "Primal.net",
+      nostr: "npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec",
+      embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1817878/" title="Block Talk_003_NOSTR 101" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
     },
   ];
 
@@ -55,9 +46,7 @@ export default function Home() {
       {/* HEADER */}
       <header className="border-b border-gray-800 p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#4DFFF3]/20 rounded flex items-center justify-center">
-            <span className="text-[#4DFFF3] font-bold text-lg">₿</span>
-          </div>
+          <img src="/blocktalks.png" alt="Block Talks Logo" className="w-10 h-10" />
           <h1 className="text-xl tracking-tight font-bold">
             Block Talks: Bitcoin &amp; Health
           </h1>
@@ -71,53 +60,70 @@ export default function Home() {
       <main className="p-4 flex-1">
         <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {episodes.map((episode) => (
-            <Link
-              key={episode.episodeNumber}
-              href={`/episode/${episode.episodeNumber}`}
-              className="relative block group"
-            >
-              <div
-                className="aspect-square rounded-lg transform-gpu transition-transform
-                           group-hover:-translate-y-1 group-hover:shadow-lg
-                           bg-gradient-to-b from-orange-600 to-purple-700
-                           p-2 border border-gray-700 flex flex-col justify-between"
+            <div key={episode.episodeNumber} className="relative block group">
+              <Link
+                href={`/episode/${episode.episodeNumber}`}
+                className="block"
               >
-                {/* Block Number and Episode Number */}
-                <div className="flex justify-between items-center text-[10px]">
-                  <span className="text-cyan-300">Block #{episode.blockNumber}</span>
-                  <span className="bg-[#4DFFF3]/20 text-[#4DFFF3] text-[10px] font-bold px-2 py-1 rounded">
-                    {episode.episodeNumber.toString().padStart(3, "0")}
-                  </span>
-                </div>
+                <div
+                  className="aspect-square rounded-lg transform-gpu transition-transform
+                             group-hover:-translate-y-1 group-hover:shadow-lg
+                             bg-gradient-to-b from-orange-600 to-purple-700
+                             p-2 border border-gray-700 flex flex-col justify-between"
+                >
+                  {/* Block Number and Episode Number */}
+                  <div className="flex justify-between items-center text-[10px]">
+                    <span className="text-cyan-300">Block #{episode.blockNumber}</span>
+                    <span className="bg-[#4DFFF3]/20 text-[#4DFFF3] text-[10px] font-bold px-2 py-1 rounded">
+                      {episode.episodeNumber.toString().padStart(3, "0")}
+                    </span>
+                  </div>
 
-                {/* Title */}
-                <h2 className="text-xs font-bold text-white text-center mt-2">
-                  {episode.title}
-                </h2>
+                  {/* Title */}
+                  <h2 className="text-xs font-bold text-white text-center mt-2">
+                    {episode.topic}
+                  </h2>
 
-                {/* Data Section */}
-                <div className="text-[10px] text-gray-300 space-y-1">
-                  <p>
-                    <span className="font-semibold text-gray-400">Hash Rate:</span>{" "}
-                    {episode.hashRate}
-                  </p>
-                  <p>
-                    <span className="font-semibold text-gray-400">Moscow Time:</span>{" "}
-                    {episode.moscowTime}
-                  </p>
-                  <p>
-                    <span className="font-semibold text-gray-400">Sponsor:</span>{" "}
-                    {episode.sponsor}
-                  </p>
-                  {episode.largestZap && (
+                  {/* Data Section */}
+                  <div className="text-[10px] text-gray-300 space-y-1">
                     <p>
-                      <span className="font-semibold text-gray-400">Largest Zap:</span>{" "}
-                      {episode.largestZap}
+                      <span className="font-semibold text-gray-400">Hash Rate:</span>{" "}
+                      {episode.hashrate}
                     </p>
-                  )}
+                    <p>
+                      <span className="font-semibold text-gray-400">Sponsor:</span>{" "}
+                      {episode.sponsor}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+
+              {/* Zap Link */}
+              {episode.nostr && (
+                <a
+                  href={`https://primal.net/p/${episode.nostr}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 flex items-center text-yellow-400 hover:underline text-xs"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-4 h-4 mr-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                  Zap me
+                </a>
+              )}
+            </div>
           ))}
         </div>
       </main>
