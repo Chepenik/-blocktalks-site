@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-// Define the structure of an episode
 interface Episode {
   episodeNumber: number;
   title: string;
@@ -9,21 +8,18 @@ interface Episode {
   embedCode: string; // Embed code for the audio player
 }
 
-// Updated episode data with embed codes for Episodes 1 and 2
 const episodesData: Episode[] = [
   {
     episodeNumber: 1,
     title: "Bitcoin Basics",
     sponsor: "Finney21",
-    embedCode:
-      `<iframe src="https://player.rss.com/bitcoinstoa/1815407" title="Block Talk_001_Bitcoin" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
+    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1815407" title="Block Talk_001_Bitcoin" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
   },
   {
     episodeNumber: 2,
     title: "Health and Bitcoin",
     sponsor: "TBD",
-    embedCode:
-      `<iframe src="https://player.rss.com/bitcoinstoa/1816968" title="Block Talk_002_Health" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
+    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1816968" title="Block Talk_002_Health" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
   },
   {
     episodeNumber: 3,
@@ -54,13 +50,11 @@ export default function EpisodePage({
 
   return (
     <div className="p-4 min-h-screen bg-gray-900 text-white font-pressStart flex flex-col items-center">
-      {/* Header */}
       <h1 className="text-xl mb-4 font-bold">Episode {episode.episodeNumber}</h1>
       <p className="text-gray-200 mb-6 text-center">
         {episode.title}. Sponsored by <strong>{episode.sponsor}</strong>.
       </p>
 
-      {/* Embed Player or Placeholder */}
       <div
         className="relative w-full max-w-4xl border-4 rounded-lg
         border-gradient-to-r from-purple-500 to-blue-500 bg-gray-800 flex items-center justify-center p-4"
@@ -75,7 +69,6 @@ export default function EpisodePage({
         )}
       </div>
 
-      {/* Back to Home Button */}
       <Link
         href="/"
         className="inline-block mt-6 bg-purple-500 hover:bg-purple-600 px-6 py-2 

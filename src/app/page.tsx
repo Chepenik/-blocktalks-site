@@ -60,7 +60,6 @@ export default function Home() {
           </h1>
         </div>
         <p className="text-xs text-gray-400">
-          lin
           Weekly 10-min microdose of Bitcoin knowledge
         </p>
       </header>
@@ -70,10 +69,7 @@ export default function Home() {
         <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {episodes.map((episode) => (
             <div key={episode.episodeNumber} className="relative block group">
-              <Link
-                href={`/episode/${episode.episodeNumber}`}
-                className="block"
-              >
+              <Link href={`/episode/${episode.episodeNumber}`} className="block">
                 <div
                   className="aspect-square rounded-lg transform-gpu transition-transform
                              group-hover:-translate-y-1 group-hover:shadow-lg
