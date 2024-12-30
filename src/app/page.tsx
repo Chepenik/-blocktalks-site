@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
 
 interface Episode {
   blockNumber: number;
@@ -46,7 +49,12 @@ export default function Home() {
       {/* HEADER */}
       <header className="border-b border-gray-800 p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <img src="/blocktalks.png" alt="Block Talks Logo" className="w-10 h-10" />
+          <Image
+            src="/blocktalks.png"
+            alt="Block Talks Logo"
+            width={40}
+            height={40}
+          />
           <h1 className="text-xl tracking-tight font-bold">
             Block Talks: Bitcoin &amp; Health
           </h1>
@@ -73,7 +81,9 @@ export default function Home() {
                 >
                   {/* Block Number and Episode Number */}
                   <div className="flex justify-between items-center text-[10px]">
-                    <span className="text-cyan-300">Block #{episode.blockNumber}</span>
+                    <span className="text-cyan-300">
+                      Block #{episode.blockNumber}
+                    </span>
                     <span className="bg-[#4DFFF3]/20 text-[#4DFFF3] text-[10px] font-bold px-2 py-1 rounded">
                       {episode.episodeNumber.toString().padStart(3, "0")}
                     </span>
@@ -87,11 +97,15 @@ export default function Home() {
                   {/* Data Section */}
                   <div className="text-[10px] text-gray-300 space-y-1">
                     <p>
-                      <span className="font-semibold text-gray-400">Hash Rate:</span>{" "}
+                      <span className="font-semibold text-gray-400">
+                        Hash Rate:
+                      </span>{" "}
                       {episode.hashrate}
                     </p>
                     <p>
-                      <span className="font-semibold text-gray-400">Sponsor:</span>{" "}
+                      <span className="font-semibold text-gray-400">
+                        Sponsor:
+                      </span>{" "}
                       {episode.sponsor}
                     </p>
                   </div>

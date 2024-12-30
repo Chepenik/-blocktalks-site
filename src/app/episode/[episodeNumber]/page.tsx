@@ -41,13 +41,12 @@ const episodesData: Episode[] = [
   },
 ];
 
-export default async function EpisodePage({
+export default function EpisodePage({
   params,
 }: {
-  params: Promise<{ episodeNumber: string }>;
+  params: { episodeNumber: string };
 }) {
-  const { episodeNumber } = await params; // Await params object
-  const episodeNum = parseInt(episodeNumber, 10);
+  const episodeNum = parseInt(params.episodeNumber, 10);
 
   const episode = episodesData.find((ep) => ep.episodeNumber === episodeNum);
 
@@ -76,6 +75,7 @@ export default async function EpisodePage({
         )}
       </div>
 
+      {/* Replace <a> with <Link> */}
       <Link
         href="/"
         className="inline-block mt-6 bg-purple-500 hover:bg-purple-600 px-6 py-2 rounded-md text-white font-semibold transition-colors"
