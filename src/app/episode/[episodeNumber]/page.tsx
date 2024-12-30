@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-// Define the structure of an episode
 interface Episode {
   blockNumber: number;
   episodeNumber: number;
@@ -9,10 +8,9 @@ interface Episode {
   hashrate: string;
   sponsor: string;
   nostr?: string;
-  embedCode?: string; // Add embedCode to the interface
+  embedCode?: string;
 }
 
-// Updated episode data with embed codes for Episodes 1 and 2
 const episodesData: Episode[] = [
   {
     blockNumber: 876183,
@@ -39,32 +37,31 @@ const episodesData: Episode[] = [
     hashrate: "822 Eh/s",
     sponsor: "Primal.net",
     nostr: "npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec",
-    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1817878/" title="Block Talk_003_NOSTR 101" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
+    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1817878" title="Block Talk_003_NOSTR 101" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
   },
 ];
 
-export default function EpisodePage({
+export default async function EpisodePage({
   params,
 }: {
-  params: { episodeNumber: string };
+  params: Promise<{ episodeNumber: string }>;
 }) {
-  const episodeNumber = parseInt(params.episodeNumber, 10);
+  const { episodeNumber } = await params; // Await params object
+  const episodeNum = parseInt(episodeNumber, 10);
 
-  const episode = episodesData.find((ep) => ep.episodeNumber === episodeNumber);
+  const episode = episodesData.find((ep) => ep.episodeNumber === episodeNum);
 
-  if (!episode || isNaN(episodeNumber)) {
+  if (!episode || isNaN(episodeNum)) {
     notFound();
   }
 
   return (
     <div className="p-4 min-h-screen bg-gray-900 text-white font-pressStart flex flex-col items-center">
-      {/* Header */}
       <h1 className="text-xl mb-4 font-bold">Episode {episode.episodeNumber}</h1>
       <p className="text-gray-200 mb-6 text-center">
         {episode.topic}. Sponsored by <strong>{episode.sponsor}</strong>.
       </p>
 
-      {/* Embed Player or Placeholder */}
       <div
         className="relative w-full max-w-4xl border-4 rounded-lg
         border-gradient-to-r from-purple-500 to-blue-500 bg-gray-800 flex items-center justify-center p-4"
@@ -79,13 +76,11 @@ export default function EpisodePage({
         )}
       </div>
 
-      {/* Back to Home Button */}
       <Link
         href="/"
-        className="inline-block mt-6 bg-purple-500 hover:bg-purple-600 px-6 py-2 
-                   rounded-md text-white font-semibold transition-colors"
+        className="inline-block mt-6 bg-purple-500 hover:bg-purple-600 px-6 py-2 rounded-md text-white font-semibold transition-colors"
       >
-        Back to Home
+        Back to Main Page
       </Link>
     </div>
   );
