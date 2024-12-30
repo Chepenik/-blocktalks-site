@@ -60,6 +60,7 @@ export default function Home() {
           </h1>
         </div>
         <p className="text-xs text-gray-400">
+          lin
           Weekly 10-min microdose of Bitcoin knowledge
         </p>
       </header>
