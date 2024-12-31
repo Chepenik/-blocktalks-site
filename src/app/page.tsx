@@ -151,12 +151,14 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="p-4 border-t border-gray-800 text-center">
-        <Link
-          href="/tips"
+        <a
+          href="https://primal.net/p/npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-cyan-400 hover:underline text-xs"
         >
-          Support the podcast on our Tips page
-        </Link>
+          Connect with us on Nostr
+        </a>
       </footer>
     </div>
   );
