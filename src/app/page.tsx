@@ -42,6 +42,15 @@ export default function Home() {
       nostr: "npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec",
       embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1817878/" title="Block Talk_003_NOSTR 101" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
     },
+    {
+      blockNumber: 877065,
+      episodeNumber: 4,
+      topic: "UTXO explained to 7 y/o",
+      hashrate: "767 Eh/s",
+      sponsor: "obiwansatoshi.com",
+      nostr: "npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec",
+      embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1820713" title="Block Talk_004_UTXO 7y/o" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
+    },
   ];
 
   return (
@@ -68,7 +77,15 @@ export default function Home() {
       <main className="p-4 flex-1">
         <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {episodes.map((episode) => (
-            <div key={episode.episodeNumber} className="relative block group">
+            <div
+              key={episode.episodeNumber}
+              className="relative block group text-center"
+            >
+              {/* Block Number Above */}
+              <div className="mb-2 text-orange-400 text-md font-semibold">
+                Block {episode.blockNumber}
+              </div>
+
               <Link href={`/episode/${episode.episodeNumber}`} className="block">
                 <div
                   className="aspect-square rounded-lg transform-gpu transition-transform
@@ -76,23 +93,20 @@ export default function Home() {
                              bg-gradient-to-b from-orange-600 to-purple-700
                              p-2 border border-gray-700 flex flex-col justify-between"
                 >
-                  {/* Block Number and Episode Number */}
-                  <div className="flex justify-between items-center text-[10px]">
-                    <span className="text-cyan-300">
-                      Block #{episode.blockNumber}
-                    </span>
-                    <span className="bg-[#4DFFF3]/20 text-[#4DFFF3] text-[10px] font-bold px-2 py-1 rounded">
-                      {episode.episodeNumber.toString().padStart(3, "0")}
+                  {/* Episode Number */}
+                  <div className="text-center">
+                    <span className="bg-[#4DFFF3]/20 text-[#4DFFF3] text-[12px] font-bold px-2 py-1 rounded">
+                      #{episode.episodeNumber.toString().padStart(3, "0")}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h2 className="text-xs font-bold text-white text-center mt-2">
+                  <h2 className="text-sm font-bold text-white mt-2">
                     {episode.topic}
                   </h2>
 
                   {/* Data Section */}
-                  <div className="text-[10px] text-gray-300 space-y-1">
+                  <div className="text-[10px] text-gray-300 space-y-1 mt-2">
                     <p>
                       <span className="font-semibold text-gray-400">
                         Hash Rate:
@@ -115,7 +129,7 @@ export default function Home() {
                   href={`https://primal.net/p/${episode.nostr}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 flex items-center text-yellow-400 hover:underline text-xs"
+                  className="mt-2 flex items-center text-yellow-400 hover:underline text-xs justify-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
