@@ -124,30 +124,26 @@ export default function Home() {
               </Link>
 
               {/* Zap Link */}
-              {episode.nostr && (
-                <a
-                  href={`https://primal.net/p/${episode.nostr}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 flex items-center text-yellow-400 hover:underline text-xs justify-center"
+              <Link
+                href="/tips"
+                className="mt-2 flex items-center text-yellow-400 hover:underline text-xs justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4 mr-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-4 h-4 mr-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                  Zap me
-                </a>
-              )}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+                Zap me
+              </Link>
             </div>
           ))}
         </div>
@@ -155,14 +151,12 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="p-4 border-t border-gray-800 text-center">
-        <a
-          href="https://primal.net/p/npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/tips"
           className="text-cyan-400 hover:underline text-xs"
         >
-          Connect with us on Nostr
-        </a>
+          Support the podcast on our Tips page
+        </Link>
       </footer>
     </div>
   );
