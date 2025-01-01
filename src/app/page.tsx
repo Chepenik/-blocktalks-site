@@ -9,8 +9,6 @@ interface Episode {
   topic: string;
   hashrate: string;
   sponsor: string;
-  nostr?: string;
-  embedCode?: string; // Add embedCode to the interface
 }
 
 export default function Home() {
@@ -21,8 +19,6 @@ export default function Home() {
       topic: "Bitcoin",
       hashrate: "723 Eh/s",
       sponsor: "Zaps",
-      nostr: "npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec",
-      embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1815407" title="Block Talk_001_Bitcoin" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
     },
     {
       blockNumber: 876488,
@@ -30,8 +26,6 @@ export default function Home() {
       topic: "Health",
       hashrate: "711 Eh/s",
       sponsor: "Zaps",
-      nostr: "npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec",
-      embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1816968" title="Block Talk_002_Health" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
     },
     {
       blockNumber: 876629,
@@ -39,8 +33,6 @@ export default function Home() {
       topic: "NOSTR 101",
       hashrate: "822 Eh/s",
       sponsor: "Primal.net",
-      nostr: "npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec",
-      embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1817878/" title="Block Talk_003_NOSTR 101" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
     },
     {
       blockNumber: 877065,
@@ -48,8 +40,13 @@ export default function Home() {
       topic: "UTXO explained to 7 y/o",
       hashrate: "767 Eh/s",
       sponsor: "obiwansatoshi.com",
-      nostr: "npub1qhe6zzhf3djq3jc9dawgr6kyp9fy5dxkssknm93669nqqcj0jm5sn3xuec",
-      embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1820713" title="Block Talk_004_UTXO 7y/o" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
+    },
+    {
+      blockNumber: 877350,
+      episodeNumber: 5,
+      topic: "Health_80/20 Rule",
+      hashrate: "684 Eh/s",
+      sponsor: "www.RunningApollo.com",
     },
   ];
 

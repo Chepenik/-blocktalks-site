@@ -4,52 +4,57 @@ import Link from "next/link";
 // Define the structure of an episode
 interface Episode {
   episodeNumber: number;
-  title: string;
+  topic: string;
   sponsor: string;
-  embedCode: string; // Embed code for the audio player
+  embedCode: string; // The audio player iframe
 }
 
-// Updated episode data with embed codes
+// Updated data with sponsors matching the Home page and embed codes relocated here
 const episodesData: Episode[] = [
   {
     episodeNumber: 1,
-    title: "Bitcoin Basics",
-    sponsor: "Finney21",
+    topic: "Bitcoin",
+    sponsor: "Zaps",
     embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1815407" title="Block Talk_001_Bitcoin" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
   },
   {
     episodeNumber: 2,
-    title: "Health and Bitcoin",
-    sponsor: "TBD",
+    topic: "Health",
+    sponsor: "Zaps",
     embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1816968" title="Block Talk_002_Health" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
   },
   {
     episodeNumber: 3,
-    title: "NOSTR 101",
+    topic: "NOSTR 101",
     sponsor: "Primal.net",
     embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1817878" title="Block Talk_003_NOSTR 101" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
   },
   {
     episodeNumber: 4,
-    title: "Coming Soon",
-    sponsor: "TBD",
-    embedCode: "",
+    topic: "UTXO explained to 7 y/o",
+    sponsor: "obiwansatoshi.com",
+    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1820713" title="Block Talk_004_UTXO 7y/o" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no" class="no-border"></iframe>`,
+  },
+  {
+    episodeNumber: 5,
+    topic: "Health_80/20 Rule",
+    sponsor: "www.RunningApollo.com",
+    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1823638" title="Block Talk_005_Health_80/20 rule" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no"><a href="https://rss.com/podcasts/bitcoinstoa/1823638">Block Talk_005_Health_80/20 rule</a></iframe>`,
   },
 ];
 
+// In Next.js 13+, route params can be sync or async depending on the version
 export default async function EpisodePage({
   params,
 }: {
   params: Promise<{ episodeNumber: string }>;
 }) {
-  // Await the params because Next.js 15.1.2 makes them asynchronous
   const { episodeNumber } = await params;
   const epNum = parseInt(episodeNumber, 10);
 
-  // Find the episode by episode number
+  // Find the episode
   const episode = episodesData.find((ep) => ep.episodeNumber === epNum);
 
-  // If the episode is not found or the epNum is invalid, show the 404 page
   if (!episode || isNaN(epNum)) {
     notFound();
   }
@@ -59,13 +64,14 @@ export default async function EpisodePage({
       {/* Header */}
       <h1 className="text-xl mb-4 font-bold">Episode {episode.episodeNumber}</h1>
       <p className="text-gray-200 mb-6 text-center">
-        {episode.title}. Sponsored by <strong>{episode.sponsor}</strong>.
+        {episode.topic} — Sponsored by <strong>{episode.sponsor}</strong>.
       </p>
 
       {/* Embed Player or Placeholder */}
       <div
         className="relative w-full max-w-4xl border-4 rounded-lg
-        border-gradient-to-r from-purple-500 to-blue-500 bg-gray-800 flex items-center justify-center p-4"
+                   border-gradient-to-r from-purple-500 to-blue-500 
+                   bg-gray-800 flex items-center justify-center p-4"
       >
         {episode.embedCode ? (
           <div

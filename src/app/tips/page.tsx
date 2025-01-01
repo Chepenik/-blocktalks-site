@@ -7,7 +7,7 @@ export default function Tips() {
   return (
     <div className="min-h-screen bg-gray-900 text-white font-pressStart flex flex-col items-center justify-center">
       {/* HEADER */}
-      <header className="border-b border-gray-800 p-4 w-full flex items-center justify-between">
+      <header className="border-b border-gray-800 p-4 w-full flex items-center justify-between mr-4">
         <div className="flex items-center gap-3">
           <Image
             src="/blocktalks.png"
