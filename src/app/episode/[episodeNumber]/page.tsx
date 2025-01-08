@@ -41,6 +41,30 @@ const episodesData: Episode[] = [
     sponsor: "www.RunningApollo.com",
     embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1823638" title="Block Talk_005_Health_80/20 rule" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no"><a href="https://rss.com/podcasts/bitcoinstoa/1823638">Block Talk_005_Health_80/20 rule</a></iframe>`,
   },
+  {
+    episodeNumber: 6,
+    topic: "Money 101",
+    sponsor: "www.Finney21.com",
+    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1824953" title="Block Talk_006_Money 101" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no"><a href="https://rss.com/podcasts/bitcoinstoa/1824953">Block Talk_006_Money 101</a></iframe>`,
+  },
+  {
+    episodeNumber: 7,
+    topic: "Keys 101",
+    sponsor: "www.Finney21.com",
+    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1826267" title="Block Talk_007_Keys 101" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no"><a href="https://rss.com/podcasts/bitcoinstoa/1826267">Block Talk_007_Keys 101</a></iframe>`,
+  },
+  {
+    episodeNumber: 8,
+    topic: "Health_Unnatural Inputs",
+    sponsor: "Zaps",
+    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1827727" title="Block Talk_008_Health_Unnatural Inputs" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no"><a href="https://rss.com/podcasts/bitcoinstoa/1827727">Block Talk_008_Health_Unnatural Inputs</a></iframe>`,
+  },
+  {
+    episodeNumber: 9,
+    topic: "Bitcoin_Collateral",
+    sponsor: "www.Finney21.com",
+    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1828753" title="Block Talk_009_Bitcoin_Collateral" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no"><a href="https://rss.com/podcasts/bitcoinstoa/1828753">Block Talk_009_Bitcoin_Collateral</a></iframe>`,
+  },
 ];
 
 // In Next.js 13+, route params can be sync or async depending on the version

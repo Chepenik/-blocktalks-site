@@ -48,6 +48,34 @@ export default function Home() {
       hashrate: "684 Eh/s",
       sponsor: "www.RunningApollo.com",
     },
+    {
+      blockNumber: 877525,
+      episodeNumber: 6,
+      topic: "Money 101",
+      hashrate: "942 Eh/s",
+      sponsor: "www.Finney21.com",
+    },
+    {
+      blockNumber: 877654,
+      episodeNumber: 7,
+      topic: "Keys 101",
+      hashrate: "775 Eh/s",
+      sponsor: "www.Finney21.com",
+    },
+    {
+      blockNumber: 877840,
+      episodeNumber: 8,
+      topic: "Health_Unnatural Inputs",
+      hashrate: "870 Eh/s",
+      sponsor: "Zaps",
+    },
+    {
+      blockNumber: 877988,
+      episodeNumber: 9,
+      topic: "Bitcoin Collateral",
+      hashrate: "851 Eh/s",
+      sponsor: "www.Finney21.com",
+    },
   ];
 
   return (
