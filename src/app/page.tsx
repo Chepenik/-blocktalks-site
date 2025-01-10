@@ -120,7 +120,7 @@ export default function Home() {
                 >
                   {/* Episode Number */}
                   <div className="text-center">
-                    <span className="bg-[#4DFFF3]/20 text-[#4DFFF3] text-[12px] font-bold px-2 py-1 rounded">
+                    <span className="bg-[#3e3e3e]/20 text-[#aeaeae] text-[12px] font-bold px-2 py-1 rounded">
                       #{episode.episodeNumber.toString().padStart(3, "0")}
                     </span>
                   </div>
@@ -146,28 +146,6 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-              </Link>
-
-              {/* Zap Link */}
-              <Link
-                href="/tips"
-                className="mt-2 flex items-center text-yellow-400 hover:underline text-xs justify-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-4 h-4 mr-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
-                Zap me
               </Link>
             </div>
           ))}
