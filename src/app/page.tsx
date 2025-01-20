@@ -65,7 +65,7 @@ export default function Home() {
     {
       blockNumber: 877840,
       episodeNumber: 8,
-      topic: "Health_Unnatural Inputs",
+      topic: "Health Unnatural Inputs",
       hashrate: "870 Eh/s",
       sponsor: "Zaps",
     },
@@ -74,6 +74,13 @@ export default function Home() {
       episodeNumber: 9,
       topic: "Bitcoin Collateral",
       hashrate: "851 Eh/s",
+      sponsor: "www.Finney21.com",
+    },
+    {
+      blockNumber: 878987,
+      episodeNumber: 10,
+      topic: "Bitcoin L1 vs. L2",
+      hashrate: "987 Eh/s",
       sponsor: "www.Finney21.com",
     },
   ];

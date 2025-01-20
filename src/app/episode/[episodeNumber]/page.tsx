@@ -65,6 +65,12 @@ const episodesData: Episode[] = [
     sponsor: "www.Finney21.com",
     embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1828753" title="Block Talk_009_Bitcoin_Collateral" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no"><a href="https://rss.com/podcasts/bitcoinstoa/1828753">Block Talk_009_Bitcoin_Collateral</a></iframe>`,
   },
+  {
+    episodeNumber: 10,
+    topic: "Bitcoin L1 vs. L2",
+    sponsor: "www.Finney21.com",
+    embedCode: `<iframe src="https://player.rss.com/bitcoinstoa/1843922" title="Block Talk_010_Bitcoin_L1 vs. L2" width="100%" height="154px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no"><a href="https://rss.com/podcasts/bitcoinstoa/1843922">Block Talk_010_Bitcoin_L1 vs. L2</a></iframe>`,
+  },
 ];
 
 export default async function EpisodePage({
